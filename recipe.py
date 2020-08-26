@@ -12,7 +12,7 @@ class Recipe:
         self.name = name
 
     def addIngredient(self, newIngred):
-        self.ingredients[newIngred] = Ingredient()
+        self.ingredients[newIngred] = Ingredient(newIngred)
         print("I'm adding ingredients")
 
     def removeIngredients(self):
