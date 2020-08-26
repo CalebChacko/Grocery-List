@@ -1,10 +1,12 @@
 import click
+from groceryList import GroceryList
 from recipe import Recipe
 from recipebook import RecipeBook
 from pantry import Pantry
 from schedule import Schedule
 from taskmanager import Manager
 
+gList = GroceryList()
 cookBook = RecipeBook()
 housePantry = Pantry()
 weekSchedule = Schedule()
@@ -31,7 +33,7 @@ def main(target, action):
                 print("Could not find recipe")
         elif action == "update":
             # This could be a little more complex
-            print("Update recipe ingredients (feature coming soon")
+            print("Update recipe ingredients (feature coming soon)")
         elif action == "search":
             name = click.prompt("What's the recipe name")
             recipeExists = cookBook.searchRecipe(name)
@@ -57,9 +59,9 @@ def main(target, action):
         elif action == "print":
             weekSchedule.printRecipes()
     elif target == "grocery":
-        if action == "print":
-            print("This is where the important function goes")
-
+        if action == "print list":
+            gList.CompareRecipeToPantry(cookBook, housePantry, weekSchedule, gList)
+            gList.print()
     elif target == 'exit':
         # Terminate program
         return target
