@@ -13,7 +13,6 @@ class Pantry:
             ingredName = input()
             if ingredName != "---":
                 self.ingredients[ingredName] = Ingredient(ingredName)
-        print(self.ingredients)
 
     def deleteIngredients(self):
         print("Delete each ingredient from the pantry by typing the name and pressing enter.\n"
@@ -23,5 +22,3 @@ class Pantry:
             ingredName = input()
             if (self.ingredients.get(ingredName, 'null') != 'null') and (ingredName != "---"):
                 del self.ingredients[ingredName]
-
-        print(self.ingredients)

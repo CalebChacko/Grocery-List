@@ -12,6 +12,7 @@ class GroceryList:
                     groceryList.items[key] = "Welcome"
 
     def print(self):
-        print("--- Today's Grocery List ---")
+        print("\n--- Today's Grocery List ---")
         for key in self.items:
             print(key)
+        print("")

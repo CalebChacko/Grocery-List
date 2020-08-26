@@ -13,7 +13,6 @@ class Recipe:
 
     def addIngredient(self, newIngred):
         self.ingredients[newIngred] = Ingredient(newIngred)
-        print("I'm adding ingredients")
 
     def removeIngredients(self):
         print("I'm removing ingredients")

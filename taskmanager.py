@@ -34,3 +34,16 @@ class Manager:
         elif pantryAction == "clear":
             print("Clear all ingredients (feature coming soon)")
             #isVerified = click.prompt("Are you sure you want to clear? [y]/[n]")
+
+    def ScheduleManager(self, schedule, scheduleAction):
+        if scheduleAction == "add":
+            schedule.addRecipes()
+        elif scheduleAction == "delete":
+            schedule.deleteRecipes()
+        elif scheduleAction == "print":
+            schedule.printRecipes()
+
+    def GroceryListManager(self, recipeBook, pantry, schedule, groceryList, gLAction):
+        if gLAction == "print list":
+            groceryList.CompareRecipeToPantry(recipeBook, pantry, schedule, groceryList)
+            groceryList.print()

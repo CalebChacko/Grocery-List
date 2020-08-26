@@ -1,6 +1,5 @@
 import click
 from groceryList import GroceryList
-from recipe import Recipe
 from recipebook import RecipeBook
 from pantry import Pantry
 from schedule import Schedule
@@ -17,58 +16,35 @@ manager = Manager()
 @click.option("--target", prompt=True, help="Add to target location")
 @click.option("--action", prompt=True, help="Add to target location")
 def main(target, action):
-    cookBook.name = "This is mine"
+
     if target == 'recipe':
-        #manager.RecipeBookManager(cookBook, action)
-        #print("The cookbook name is", cookBook.name)
-        if action == "add":
-            name = click.prompt("What's the recipe name")
-            cookBook.addRecipe(name)
-        elif action == "delete":
-            name = click.prompt("What's the recipe name")
-            recipeExists = cookBook.searchRecipe(name)
-            if recipeExists:
-                cookBook.deleteRecipe(name)
-            else:
-                print("Could not find recipe")
-        elif action == "update":
-            # This could be a little more complex
-            print("Update recipe ingredients (feature coming soon)")
-        elif action == "search":
-            name = click.prompt("What's the recipe name")
-            recipeExists = cookBook.searchRecipe(name)
-            if recipeExists:
-                print("Found recipe")
-            else:
-                print("Could not find recipe")
-        else:
-            print("Invalid action")
+        manager.RecipeBookManager(cookBook, action)
     elif target == 'pantry':
-        if action == "add":
-            housePantry.addIngredients()
-        elif action == "delete":
-            housePantry.deleteIngredients()
-        elif action == "clear":
-            print("Clear all ingredients (feature coming soon)")
-            #isVerified = click.prompt("Are you sure you want to clear? [y]/[n]")
+        manager.PantryManager(housePantry, action)
     elif target == "schedule":
-        if action == "add":
-            weekSchedule.addRecipes()
-        elif action == "delete":
-            weekSchedule.deleteRecipes()
-        elif action == "print":
-            weekSchedule.printRecipes()
+        manager.ScheduleManager(weekSchedule, action)
     elif target == "grocery":
-        if action == "print list":
-            gList.CompareRecipeToPantry(cookBook, housePantry, weekSchedule, gList)
-            gList.print()
+        manager.GroceryListManager(cookBook, housePantry, weekSchedule, gList, action)
+    elif target == "help":
+        print("Give user some info on commands")
     elif target == 'exit':
         # Terminate program
         return target
 
     main()
 
+def intro():
+    print("\n--------------------------------")
+    print("Welcome to Grocery List Services")
+    print("This application can help provide you with\na required Grocery List based on what's in your house and what you are planning to cook.")
+    print("|  --Targets--  ")
+    print("|  [recipe] - ")
+    print("|  [pantry] - ")
+    print("|  [schedule] - ")
+    print("|  [grocery] - ")
+    print("|  [help] - ")
+    print("|  [exit] - \n")
 
 if __name__ == '__main__':
-
+    intro()
     main()
