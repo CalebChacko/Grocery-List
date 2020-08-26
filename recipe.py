@@ -1,3 +1,4 @@
+from ingredient import Ingredient
 
 class Recipe:
     name = 'None'
@@ -11,8 +12,7 @@ class Recipe:
         self.name = name
 
     def addIngredient(self, newIngred):
-        print(len(self.ingredients))
-        self.ingredients[(len(self.ingredients)+1)] = newIngred
+        self.ingredients[newIngred] = Ingredient()
         print("I'm adding ingredients")
 
     def removeIngredients(self):
@@ -20,5 +20,8 @@ class Recipe:
 
     def updateIngredients(self, addIngredients):
         print ("I'm", addIngredients)
+
+    def print(self):
+        print(self.ingredients)
 
 

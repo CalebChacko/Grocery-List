@@ -4,9 +4,25 @@ class RecipeBook:
     recipes = {}
     name = "Jim"
 
-    def addRecipe(self, recipe):
-        print("add recipe")
 
-    def deleteRecipe(self, recipe):
-        print("delete recipe")
+    def addRecipe(self, name):
+        print("add recipe")
+        newRecipe = Recipe(name)
+        newRecipe.name = name
+        print("Add an ingredient and press enter. If finished type in '---' and enter")
+        ingredient = ""
+        while ingredient != "---":
+            ingredient = input()
+            if ingredient != "---":
+                newRecipe.addIngredient(ingredient)
+
+        self.recipes[newRecipe.name] = newRecipe
+
+    def deleteRecipe(self, name):
+        del self.recipes[name]
+        print("Deleted", name)
+
+    def searchRecipe(self, name):
+        if self.recipes.get(name, 'null') != 'null':
+            return bool(1)
 
