@@ -5,7 +5,7 @@ class Schedule:
 
     def addRecipes(self):
         print("Add recipe to this week's schedule by typing the name and pressing enter.\n"
-              "If finished type in '---' and enter \n")
+              "If finished type in '---' and enter")
         recipe = ""
         while recipe != "---":
             recipe = input()
@@ -14,7 +14,7 @@ class Schedule:
 
     def deleteRecipes(self):
         print("Delete recipe from this week's schedule by typing the name and pressing enter.\n"
-              "If finished type in '---' and enter \n")
+              "If finished type in '---' and enter")
         recipe = ""
         while recipe != "---":
             recipe = input()
@@ -22,4 +22,4 @@ class Schedule:
                 del self.recipes[recipe]
 
     def printRecipes(self):
-        print(self.ingredients)
+        print(self.recipes)

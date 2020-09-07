@@ -6,7 +6,6 @@ class RecipeBook:
 
 
     def addRecipe(self, name):
-        print("add recipe")
         newRecipe = Recipe(name)
         newRecipe.name = name
         print("Add an ingredient and press enter. If finished type in '---' and enter")

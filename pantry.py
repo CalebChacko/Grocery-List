@@ -7,7 +7,7 @@ class Pantry:
 
     def addIngredients(self):
         print("Add each ingredient to the pantry by typing the name and pressing enter.\n"
-              "If finished type in '---' and enter\n")
+              "If finished type in '---' and enter")
         ingredName = ""
         while ingredName != "---":
             ingredName = input()
@@ -16,7 +16,7 @@ class Pantry:
 
     def deleteIngredients(self):
         print("Delete each ingredient from the pantry by typing the name and pressing enter.\n"
-              "If finished type in '---' and enter \n")
+              "If finished type in '---' and enter")
         ingredName = ""
         while ingredName != "---":
             ingredName = input()

@@ -14,7 +14,7 @@ manager = Manager()
 
 @click.command()
 @click.option("--target", prompt=True, help="Add to target location")
-@click.option("--action", prompt=True, help="Add to target location")
+@click.option("--action", prompt=True, help="Add action to target location")
 def main(target, action):
 
     if target == 'recipe':
